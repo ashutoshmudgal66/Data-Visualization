@@ -1,0 +1,74 @@
+---
+title: "Bank.Camaign"
+author: "Ashutosh Mudgal"
+date: "25 January 2017"
+output: html_document
+---
+
+#Read the data `Banking Campaign.csv`
+
+```{r}
+Bank.Campaign <- read.csv("Bank Campaign.csv", na.strings="")
+View(Bank.Campaign)
+```
+
+#Sampling frequency of the file
+
+```{r}
+summary(Bank.Campaign)
+```
+
+
+#No. of rows and columns
+
+
+```{r}
+nrow(Bank.Campaign)
+ncol(Bank.Campaign)
+```
+
+#Detect the types of the columns (Dimensions, Metrics, Dates, Text and Geo)
+
+```{r}
+dim(Bank.Campaign)
+str(Bank.Campaign)
+```
+
+
+#Detect number of non-null values in each columns
+
+```{r}
+#for missing values
+library(Rcpp)
+library(VIM)
+library(mice)
+md.pattern(Bank.Campaign)
+#no. of non-null values in each columns
+colSums(Bank.Campaign != "null")
+```
+
+#Create a bar chart using ggplot or simple base r plot to represent frequency distribution of each dimension column. Describe your findings.
+
+```{r}
+library(ggplot2)
+ggplot(Bank.Campaign,aes(x=Age.Group,fill=Bank.Campaign$Age.Group))+geom_bar()+labs(x="Age.Group",y="value")+ggtitle("maintitle=Bank.Campaign$Age.Group")
+```
+```{r}
+ggplot(Bank.Campaign,aes(x=Job,fill=Bank.Campaign$Job))+geom_bar()+labs(x="Job",y="value")+ggtitle("maintitle=Bank.Campaign$Job")
+```
+```{r}
+ggplot(Bank.Campaign,aes(x=Marital,fill=Bank.Campaign$Marital))+geom_bar()+labs(x="Marital",y="value")+ggtitle("maintitle=Bank.Campaign$Marital")
+```
+```{r}
+ggplot(Bank.Campaign,aes(x=Education,fill=Bank.Campaign$Education))+geom_bar()+labs(x="Education",y="t")+ggtitle("maintitle=Bank.Campaign$Education")
+```
+```{r}
+ggplot(Bank.Campaign,aes(x=Default,fill=Bank.Campaign$Default))+geom_bar()+labs(x="Default",y="value")+ggtitle("maintitle=Bank.Campaign$Default")
+```
+```{r}
+ggplot(Bank.Campaign,aes(x=Balance.Group,fill=Bank.Campaign$Balance.Group))+geom_bar()+labs(x="Balance.Group",y="value")+ggtitle("maintitle=Bank.Campaign$Balance")
+```
+```{r}
+ggplot(Bank.Campaign,aes(x=Month,fill=Bank.Campaign$Month))+geom_bar()+labs(x="Month",y="value")+ggtitle("maintitle=Bank.Campaign$Month")
+```
+

@@ -1,0 +1,12 @@
+---
+title: '`visualizations`'
+author: "Ashutosh Mudgal"
+date: "25 January 2017"
+output: html_document
+```
+library(pandoc)
+if(!require(installr)){install.packages("installr");require(installr)}
+install.pandoc()
+```
+![Graph](D:\Data Visualization\Capture.PNG)
+![Graph](D:\Data Visualization\Capture1.PNG)
